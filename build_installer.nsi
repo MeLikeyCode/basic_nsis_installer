@@ -15,11 +15,11 @@
 
 ;--------------------------------
 ;variables to make this a general installer
+  !define INSTALLER_TITLE "Matrix Playground" # the title that is displayed in the installer window and in the Add/Remove Programs dialog
+  !define INSTALLER_EXE "install_matrix_playground.exe" # the installer exe file name
   !define EXE_NAME "matrix_playground.exe" ; name of the executable file that a shortcut will be created for in the start menu
   !define ROOTDIR "dist\matrix_playground" ; root directory of the files to be installed (if using pyinstaller this is usually in dist\<some_folder>)
   !define INSTALLATION_LICENSE "installation_license.txt" ; name of the file that contains the license text
-  !define INSTALLER_TITLE "Matrix Playground" # the title that is displayed in the installer window and in the Add/Remove Programs dialog
-  !define INSTALLER_EXE "install_matrix_playground.exe" # the installer exe file name
 
 ;--------------------------------
 ;Include Modern UI
