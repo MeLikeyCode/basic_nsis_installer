@@ -1,8 +1,8 @@
 ; Creates an installer.
 ;
 ; 1) Put the folder that contains the files you want to install in the same directory as this file
-; 2) Set the variables below to desired values
-; 3) Run this file with NSIS. 
+; 2) Set the variables below to desired values (all paths are relative to this file)
+; 3) Run this file with NSIS (`makensis build_installer.nsi` or use the NSIS GUI). 
 ;
 ; The installer will be created in the same directory as this file.
 ;
@@ -15,10 +15,10 @@
 
 ;--------------------------------
 ;variables to make this a general installer
-  !define INSTALLER_TITLE "Matrix Playground" # the title that is displayed in the installer window and in the Add/Remove Programs dialog
-  !define INSTALLER_EXE "install_matrix_playground.exe" # the installer exe file name
-  !define EXE_NAME "matrix_playground.exe" ; name of the executable file that a shortcut will be created for in the start menu
+  !define APP_TITLE "Matrix Playground" # the title that is displayed in the installer window and in the Add/Remove Programs dialog
+  !define INSTALLER_EXE "install_matrix_playground.exe" # the name of the installer file
   !define ROOTDIR "dist\matrix_playground" ; root directory of the files to be installed (if using pyinstaller this is usually in dist\<some_folder>)
+  !define EXE_PATH "matrix_playground.exe" ; the executable file that a shortcut will be created for in the start menu
   !define INSTALLATION_LICENSE "installation_license.txt" ; name of the file that contains the license text
 
 ;--------------------------------
@@ -30,7 +30,7 @@
 ;General
 
   ;Name and file
-  Name "${INSTALLER_TITLE}"
+  Name "${APP_TITLE}"
   OutFile "${INSTALLER_EXE}"
   Unicode True
 
@@ -75,7 +75,7 @@ Section "Main Section" SecMain
 
   ;create start-menu shortcut
   ;$SMPROGRAMS is a reference to the directory in windows that houses all start menu shortcuts
-  CreateShortCut "$SMPROGRAMS\$(^Name).lnk" "$INSTDIR\${EXE_NAME}" "" "$INSTDIR\${EXE_NAME}" 0  
+  CreateShortCut "$SMPROGRAMS\$(^Name).lnk" "$INSTDIR\${EXE_PATH}" "" "$INSTDIR\${EXE_PATH}" 0  
 
   ;write uninstall information to the registry (so it shows up in Add/Remove Programs)
   ;in windows, the uninstall information is stored in the registry under the key HKEY_*\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
