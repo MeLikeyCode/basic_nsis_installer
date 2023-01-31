@@ -13,13 +13,14 @@
 ;
 ; This file is based on a template written by Joost Verburg
 
-;--------------------------------
-;variables to make this a general installer
+; Set these variables
   !define APP_TITLE "Matrix Playground" # the title that is displayed in the installer window and in the Add/Remove Programs dialog
   !define INSTALLER_EXE "install_matrix_playground.exe" # the name of the installer file
   !define ROOTDIR "dist\matrix_playground" ; root directory of the files to be installed (if using pyinstaller this is usually in dist\<some_folder>)
   !define EXE_PATH "matrix_playground.exe" ; the executable file that a shortcut will be created for in the start menu
   !define INSTALLATION_LICENSE "installation_license.txt" ; name of the file that contains the license text
+
+; You're done. You don't need to touch the rest of the file. Run this file with NSIS to generate the installer.
 
 ;--------------------------------
 ;Include Modern UI
